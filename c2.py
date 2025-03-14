@@ -10,6 +10,10 @@ def extract_host(url):
     host = re.sub(r"\/?$", "", host)
     return host
 
+def is_https(url):
+    # Check if URL uses HTTPS
+    return url.lower().startswith("https://")
+
 def get_ip_address(host):
     # Get IP address for host
     return socket.gethostbyname("www.redsiege.com")
@@ -35,8 +39,14 @@ def check_headers(x):
     # Making a get request
     response = requests.get(url)
 
-    # Check security headers
-    print_header_status('Strict-Transport-Security', response.headers, host)
+    # Check if URL is HTTPS
+    is_secure = is_https(url)
+    
+    # Check security headers, only check Strict-Transport-Security if URL is HTTPS
+    if is_secure:
+        print_header_status('Strict-Transport-Security', response.headers, host)
+    else:
+        print(Fore.YELLOW + f"Skipping Strict-Transport-Security check for HTTP URL: {url}" + Style.RESET_ALL)
     print_header_status('Content-Security-Policy', response.headers, host)
     print_header_status('X-Frame-Options', response.headers, host)
     print_header_status('Server', response.headers, host, show_value=True)
