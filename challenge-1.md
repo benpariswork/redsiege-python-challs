@@ -1,24 +1,5 @@
----
-title: 'Red Siege Python Challenge 1'
-date: 2025-03-03T12:21:37-07:00
-tags: ["python"]
-author: "Ben Paris"
-draft: false
-ShowToc: true
-TocOpen: true
-hidemeta: false
-comments: false
-description: "Writing Python without AI as backup."
-disableShare: false
-disableHLJS: false
-hideSummary: false
-ShowBreadCrumbs: true
-ShowRssButtonInSectionTermList: false
-cover:
-  image: "https://www.sara-taher.com/content/images/size/w1460/2023/05/computer-screen-with-python-code.png"
-  alt: "<python>"
-  # caption: "Python"
----
+# Red Siege Python Challenge 1
+
 ## Context
 I have been using python to automate redundant tasks for a while now, but I usually have an LLM do its best to write my script then go from there. This no doubt has saved me time, it is really impressive what can be done with a little coding know-how halfway-decent AI. That being said, I have a couple python courses coming up and I am pretty sure I will not be able to use AI on the test. I want to get ahead and prepare by doing some python projects with zero help from AI.
 
