@@ -14,7 +14,7 @@ def check_headers(x):
     # Making a get request
     response = requests.get(url)
 
-    # Check header exists in response
+    # Check 'Strict-Transport-Security' header exists in response
     if 'Strict-Transport-Security' in response.headers:
         print(Fore.GREEN + f"Strict-Transport-Security header was found for {host}")
         print(Style.RESET_ALL)
@@ -22,8 +22,33 @@ def check_headers(x):
         print(Fore.RED + f"Strict-Transport-Security header was not found for {host}")
         print(Style.RESET_ALL)
 
+    # Check 'Content-Security-Policy' header exists in response
+    if 'Content-Security-Policy' in response.headers:
+        print(Fore.GREEN + f"Content-Security-Policy header was found for {host}")
+        print(Style.RESET_ALL)
+    else: 
+        print(Fore.RED + f"Content-Security-Policy header was not found for {host}")
+        print(Style.RESET_ALL)
+
+    # Check 'X-Frame-Options' header exists in response
+    if 'X-Frame-Options' in response.headers:
+        print(Fore.GREEN + f"X-Frame-Options header was found for {host}")
+        print(Style.RESET_ALL)
+    else: 
+        print(Fore.RED + f"X-Frame-Options header was not found for {host}")
+        print(Style.RESET_ALL)      
+
+    # Check 'Server' header exists in response, return value
+    if 'Server' in response.headers:
+        print(Fore.GREEN + f"Server was found for {host}")
+        print("Server Header Value:" + response.headers['Server'])
+        print(Style.RESET_ALL)
+    else: 
+        print(Fore.RED + f"Server was not found for {host}")
+        print(Style.RESET_ALL)          
+
 with open('links.txt', 'r') as file:
-    #Reade each line in file
+    #Read each line in file
     for line in file:
-        #Run get_data fucntion on IP
+        #Run get_data function on IP
         check_headers(line.strip())
