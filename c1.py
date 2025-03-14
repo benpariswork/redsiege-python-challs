@@ -44,5 +44,5 @@ with open('addresses.txt', 'r') as file:
             for i in netIpv4Address:
                 print_data(i)
         else:
-            # Run get_data function for standard IP addr.
+            # Run print_data function for standard IP addr.
             print_data(line.strip())
